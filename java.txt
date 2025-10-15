@@ -1,0 +1,31 @@
+Abstract classes cannot be instantiated, but they can have constructors, static methods, and even final methods.
+
+An abstract class does not necessarily need to have abstract methods, but it cannot be instantiated.
+abstract class Parent {
+    abstract void show();
+}
+class Child extends Parent {
+    void show() {
+        System.out.println("Child class method");
+    }
+}
+public class Main {
+    public static void main(String[] args) {
+        Parent p = new Child();
+        p.show();
+    }
+}
+//code will run normally
+
+
+
+Since Child provides an implementation for show(), the abstract method is successfully overridden, and dynamic method dispatch calls it.
+
+erfaces can have constants, default, and static methods (1).
+You cannot create an instance of an interface (2 is false).
+A class can implement multiple interfaces (3).
+Multiple classes can implement the same interface (4).
+
+In Java, an abstract class can have a mix of abstract methods (without implementation) and concrete methods (with implementation). Abstract classes cannot be instantiated directly, but they can have constructors, fields, and methods like any other class.
+
+Numeric arrays in Java are initialized to 0 by default.
