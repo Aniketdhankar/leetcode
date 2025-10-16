@@ -5,7 +5,24 @@
 | **Average**    | O(n log n) |
 | **Worst Case** | O(n log n) |
 
+Intuition:
 
+Divide halves → 
+log
+⁡
+𝑛
+logn times
+
+Merge everything back → 
+𝑛
+n work per level
+
+Multiply → 
+𝑛
+log
+⁡
+𝑛
+nlogn
  */
 
 public class MergeSort {
