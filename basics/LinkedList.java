@@ -117,6 +117,12 @@ public class LinkedList {
         }
         count--;
     }
+    // delete using single pointer
+    //while (curr.next.next != null) { // stop at second last
+    //curr = curr.next;
+
+
+    
 
     // Delete from specific position
     void deleteP() {
