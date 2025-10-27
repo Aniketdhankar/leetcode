@@ -1,0 +1,10 @@
+🚫 Why Java is not 100% Object-Oriented
+
+Here are the main reasons 👇
+
+Reason	Explanation
+1. Primitive Data Types	Java has 8 primitive types (int, char, boolean, float, double, byte, short, long) that are not objects — they are stored directly in memory for performance.
+2. Static Members (methods/variables)	static methods and variables belong to the class, not to an instance (object). So, they can be accessed without creating objects, which breaks the pure OOP rule.
+3. Wrapper Classes are Workarounds	Java provides wrapper classes (Integer, Boolean, etc.) to make primitives “object-like”, but they are not used by default.
+4. Use of Non-Object Constructs	Some language constructs like switch, if-else, and loops (for, while) are not object-based control structures — they’re procedural.
+5. main() method is static	The Java program starts execution from the public static void main(String[] args) method, which runs without creating any object.

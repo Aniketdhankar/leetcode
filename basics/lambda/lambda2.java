@@ -15,7 +15,7 @@ public class lambda2 {
         list.sort((a, b) -> a - b); // ascending
         list.sort((a, b) -> b - a); // descending
 
-        list.sort()//error
+        list.sort();//error
 
         /*
          * List.sort() does not have a no-argument version.

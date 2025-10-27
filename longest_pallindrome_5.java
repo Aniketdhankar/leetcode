@@ -12,6 +12,7 @@ class Solution {
         int n=s.length();
         int maxlen=0;
         int best_start=0;
+
         for(int i=0;i<n;i++){
             for(int j=i;j<n;j++){
                 if(solve(s,i,j)){

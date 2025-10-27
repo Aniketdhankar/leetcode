@@ -11,7 +11,7 @@ public class lambda {
 
     public static void main(String[] args) {
         // Using lambda expression for Add interface
-        Add obj = (a, b) -> a + b;          // equivalent to Adder
+        Add obj = (a, b) -> a + b;          // equivalent to Adder  //help us to avoid creating separate class for simple operations
         Add objAnother = (a, b) -> a + b + 1; // equivalent to AnotherAdder
 
         // For non-static inner class, create instance of outer class
