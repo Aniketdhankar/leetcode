@@ -17,7 +17,7 @@ public class files {
         } catch (Exception e) {
             System.out.println("Error while creating file: " + e);
         }
-
+/* 
         // Write to file in append mode
         try {
             FileWriter writer = new FileWriter("Aniket.txt", true);
@@ -27,6 +27,7 @@ public class files {
         } catch (Exception e) {
             System.out.println("Error while writing to file: " + e);
         }
+            */
 
         // ✅ Read from the file using Scanner connected to the File object
         try {
@@ -41,5 +42,55 @@ public class files {
         } catch (Exception e) {
             System.out.println("Error while reading file: " + e);
         }
+
+        //trying to acces the file elements
+        int m,n;
+        int[][] arr;
+
+        try {
+    File file = new File("Aniket.txt"); // match the exact file name
+    Scanner sc = new Scanner(file);
+
+    // Read m and n from the first line of the file
+     m = sc.nextInt();
+     n = sc.nextInt();
+    sc.nextLine(); // consume the leftover newline after nextInt()
+
+    arr = new int[m][n];
+
+    for (int i = 0; i < m; i++) {
+        String line = sc.nextLine();
+        String[] numbers = line.trim().split(",");
+        for (int j = 0; j < n; j++) {
+            arr[i][j] = Integer.parseInt(numbers[j]);
+        }
     }
+
+    // Print array
+    for (int i = 0; i < m; i++) {
+        for (int j = 0; j < n; j++) {
+            System.out.print(arr[i][j] + " ");
+        }
+        System.out.println();
+    }
+
+    sc.close();
+
+} catch (Exception e) {
+    System.out.println(e);
+}
+
+
+
+
+
+
+
+    }
+
+
+
+
+
+
 }
