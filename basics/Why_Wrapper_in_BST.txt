@@ -1,0 +1,121 @@
+
+
+---
+
+## 🧩 The core idea
+
+In your BST class, you have two `insert()` methods:
+
+```java
+// 1️⃣ Internal recursive version
+Node insert(Node root, int value) { ... }
+
+// 2️⃣ Wrapper version for users
+void insert(int value) {
+    root = insert(root, value);
+}
+```
+
+The **wrapper** method (the second one) is the one you actually call from outside the class:
+
+```java
+tree.insert(10);
+```
+
+---
+
+## 🧠 Why we need the wrapper
+
+The **recursive version** of `insert()` needs a `Node root` parameter, because recursion has to move deeper into subtrees:
+
+```java
+root.left = insert(root.left, value);
+root.right = insert(root.right, value);
+```
+
+But if you were a *user* of this class, you shouldn’t need to know what the root node even is — that’s internal tree structure!
+
+Without the wrapper, you’d have to call it like this:
+
+```java
+tree.root = tree.insert(tree.root, 10); // ❌ ugly and breaks encapsulation
+```
+
+That’s bad because:
+
+* It exposes `root`, which should be **private** (encapsulation broken)
+* It looks messy and confusing for beginners
+* It couples external code to internal implementation details
+
+---
+
+## ✅ The Wrapper fixes all that
+
+By adding this simple helper:
+
+```java
+void insert(int value) {
+    root = insert(root, value);
+}
+```
+
+you hide the internal complexity.
+
+Now the user just writes:
+
+```java
+tree.insert(10); // ✅ clean, easy, safe
+```
+
+Internally, this wrapper:
+
+* Automatically passes the current `root`
+* Updates the tree structure correctly
+* Keeps the `root` private and protected
+
+---
+
+## 🧠 Visual Comparison
+
+| Without wrapper                           | With wrapper              |
+| ----------------------------------------- | ------------------------- |
+| `tree.root = tree.insert(tree.root, 10);` | `tree.insert(10);`        |
+| Exposes internal data (`root`)            | Keeps `root` private      |
+| User must know recursion structure        | User just gives the value |
+| Bad OOP practice                          | Clean OOP design          |
+
+---
+
+## 💬 Think of it like this:
+
+The **wrapper** acts as a **public interface** — a friendly front desk for users.
+
+The recursive `insert(Node, int)` is a **private worker** — it does the hard recursive job behind the scenes.
+
+---
+
+### 💡 Bonus: Same idea applies to
+
+✅ `search()`
+✅ `delete()`
+✅ `traversals()`
+
+All of them usually have:
+
+```java
+private void inorder(Node root) { ... }
+public void inorder() { inorder(this.root); }
+```
+
+so users can just write:
+
+```java
+tree.inorder();
+```
+
+instead of:
+
+```java
+tree.inorder(tree.root);
+```
+
